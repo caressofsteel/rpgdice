@@ -1,0 +1,271 @@
+body,
+p {
+	font-family: "Trebuchet MS", Verdana, sans-serif;
+	font-size: 10pt;
+}
+
+body {
+	background-color:#333;
+	background-image: url(../img/dungeon.jpg );
+}
+
+textarea {
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	white-space: pre;
+	font-size: 18pt;
+	background-color: #e2e2e2;
+}
+
+.mainTable {
+	background-color: #7f8a66;
+	background-repeat: no-repeat;
+	background-position: center center;
+	border: 1px solid black;
+	width: 640px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.divtogglebtn {
+	font-size: 8pt;
+	width: 15px;
+}
+
+.divQuickResult {
+	font-weight: 900;
+}
+
+.heading {
+	padding-left: 5px;
+	font-size: 14pt;
+	font-weight: 900;
+}
+
+.legal {
+	font-size: 8pt;
+	color: #685555;
+	text-align: center;
+}
+
+.busyNotification {
+	color: #00ff9d;
+	font-weight: 900;
+}
+
+.result {
+	font-size: 16pt;
+	font-weight: 900;
+	vertical-align: middle;
+}
+
+
+.myRolls {
+	background-color: #e2caca;
+	border: 1px solid black;
+}
+
+.myRolls td,
+th {
+	background-color: #d2baba;
+	border: 1px solid black;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+
+.myRollName {
+	font-weight: 900;
+}
+
+.myRollDescription {
+	font-size: 8pt;
+}
+
+.myRollResult {
+	width: 60px;
+	font-size: 16pt;
+	text-align: center;
+}
+
+.fullRollTable {
+	background-color: #a79c7a;
+	border: 1px solid black;
+}
+
+.fullRollTable td,
+th {
+	background-color: #2e2e2e;
+	border: 1px solid black;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	color: #fff;
+}
+
+.fullRollDescription {
+	font-size: 8pt;
+}
+
+.fullRollResult {
+	width: 60px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.quickRollTable {
+	background-color:#a79c7a;
+	border: 1px solid black;
+	color: #fff;
+
+}
+
+.quickRollTable td {
+	width: 50px;
+	text-align: center;
+}
+
+.quickRollTable td,
+th {
+	background-color: #2e2e2e;
+	border: 1px solid black;
+	padding-left: 1px;
+	padding-right: 1px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.resultTable {
+	background-color:#a79c7a;
+	border: 1px solid black;
+}
+
+.resultTable td {
+	background-color: #2e2e2e;
+	text-align: center;
+	color: #84ffb3;
+}
+
+.resultTable th {
+	background-color: #2e2e2e;
+}
+.resultTable td {
+
+	background-color: #2e2e2e;
+
+	border: 1px solid black;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.sectionTable {
+	padding-top: 10px;
+	padding-bottom: 5px;
+	table-layout: fixed;
+	width: 95%;
+}
+
+.sectionTable td {
+	vertical-align: top;
+}
+
+.sectionContent {
+	padding-bottom: 15px;
+}
+
+.sectionCellL {
+	background-image: url(../img/vertline.png );
+	width: 15px;
+	height: 100%;
+	vertical-align: top;
+}
+
+.sectionCellBL {
+	height: 15px;
+	background-image: url(../img/blcorner.png );
+}
+
+.sectionCellB {
+	height: 15px;
+	background-image: url(../img/horizline.png );
+}
+
+td {
+	vertical-align: middle;
+}
+
+a.die {
+	width: 48px;
+	height: 32px;
+	display: block;
+	text-indent: -200px
+}
+
+th {
+	background-color:#473527;
+	color: #FFFFFF;
+	vertical-align: bottom;
+}
+
+/* DICE BAG */
+a#d4 {
+	background: url(../img/diceBag_d4.png) no-repeat
+}
+
+a:hover#d4 {
+	background: url(../img/diceBag_d4_o.png) no-repeat
+}
+
+a#d6 {
+	background: url(../img/diceBag_d6.png) no-repeat
+}
+
+a:hover#d6 {
+	background: url(../img/diceBag_d6_o.png) no-repeat
+}
+
+a#d8 {
+	background: url(../img/diceBag_d8.png) no-repeat
+}
+
+a:hover#d8 {
+	background: url(../img/diceBag_d8_o.png) no-repeat
+}
+
+a#d10 {
+	background: url(../img/diceBag_d10.png) no-repeat
+}
+
+a:hover#d10 {
+	background: url(../img/diceBag_d10_o.png) no-repeat
+}
+
+a#d12 {
+	background: url(../img/diceBag_d12.png) no-repeat
+}
+
+a:hover#d12 {
+	background: url(../img/diceBag_d12_o.png) no-repeat
+}
+
+a#d20 {
+	background: url(../img/diceBag_d20.png) no-repeat
+}
+
+a:hover#d20 {
+	background: url(../img/diceBag_d20_o.png) no-repeat
+}
+
+a#d100 {
+	background: url(../img/diceBag_d100.png) no-repeat
+}
+
+a:hover#d100 {
+	background: url(../img/diceBag_d100_o.png) no-repeat
+}

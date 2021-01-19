@@ -1,0 +1,523 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<!--
+	//
+	// RPG Dice
+	// Dice rolling tools adapted to my needs for various RPG games
+	// Adapted from Online Die Roller (2005) by Brock H. Jones
+	//
+	-->	
+	<title>RPG Dice</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<link href="css/dice.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/diceRoller.js"></script>
+	<script type="text/javascript" src="js/diceBag.js"></script>
+	<script type="text/javascript" src="js/dice.js"></script>
+</head>
+
+<body onload="initPage();">
+	<form method="post" action="#" id="diceBag">
+		<table id="mainTable" class="mainTable" align="left">
+			<tbody>
+				<tr>
+					<td>
+						<p>
+							<img src="img/rpgdice.png" alt="Online Die Roller" width="256" height="64">
+
+							<!-- DICE BAG -->
+							<table class="sectionTable" style="top: 13px;" cellspacing="0" cellpadding="0">
+								<colgroup>
+									<col width="15">
+									<col width="100%">
+								</colgroup>
+								<tbody>
+									<tr>
+										<td rowspan="2" class="sectionCellL"><input type="button" id="btndivDiceBag"
+												class="divtogglebtn" value="-" onclick="toggleDiv( 'divDiceBag' );">
+										</td>
+										<td><span class="heading"> Dice Bag</span></td>
+									</tr>
+									<tr>
+										<td class="sectionContent">
+											<div id="divDiceBag" style="display:block;">
+												<p>Press a button to roll a single die with the specified number of
+													sides.
+												</p>
+												<!-- D20 Dice Bag -->
+
+												<table style="float:left;margin-right:20px" class="dataTable"
+													cellspacing="0">
+													<thead>
+														<tr>
+															<th>#</th>
+															<th>Die</th>
+															<th>+ -</th>
+															<th>Modifier</th>
+															<th>&nbsp;</th>
+															<th>Results</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td><input class="number" name="d4n" size="3" value="1"
+																	type="text"></td>
+															<td><a href="javascript:void(null)" onclick="rollDn(4)"
+																	title="click to roll d4" class="die" id="d4">d4</a>
+															</td>
+															<td>
+																<select name="d4m">
+																	<option value="+" selected="selected">+</option>
+																	<option value="-">-</option>
+																</select>
+															</td>
+															<td><input class="modifier" id="d4mo" size="3" value="0"
+																	type="text"></td>
+															<td>=</td>
+															<td><input class="results" name="d4r" size="5"
+																	readonly="readonly" type="text">
+															</td>
+														</tr>
+														<tr>
+															<td><input class="number" name="d6n" size="3" value="1"
+																	type="text"></td>
+															<td><a href="javascript:void(null)" onclick="rollDn(6)"
+																	title="click to roll d6" class="die" id="d6">d6</a>
+															</td>
+															<td>
+																<select name="d6m">
+																	<option value="+" selected="selected">+</option>
+																	<option value="-">-</option>
+																</select>
+															</td>
+															<td><input class="modifier" id="d6mo" size="3" value="0"
+																	type="text"></td>
+															<td>=</td>
+															<td><input class="results" name="d6r" size="5"
+																	readonly="readonly" type="text">
+															</td>
+														</tr>
+														<tr>
+															<td><input class="number" name="d8n" size="3" value="1"
+																	type="text"></td>
+															<td><a href="javascript:void(null)" onclick="rollDn(8)"
+																	title="click to roll d8" class="die" id="d8">d8</a>
+															</td>
+															<td>
+																<select name="d8m">
+																	<option value="+" selected="selected">+</option>
+																	<option value="-">-</option>
+																</select>
+															</td>
+															<td><input class="modifier" id="d8mo" size="3" value="0"
+																	type="text"></td>
+															<td>=</td>
+															<td><input class="results" name="d8r" size="5"
+																	readonly="readonly" type="text">
+															</td>
+														</tr>
+														<tr>
+															<td><input class="number" name="d10n" size="3" value="1"
+																	type="text"></td>
+															<td><a href="javascript:void(null)" onclick="rollDn(10)"
+																	title="click to roll d10" class="die"
+																	id="d10">d10</a></td>
+															<td>
+																<select name="d10m">
+																	<option value="+" selected="selected">+</option>
+																	<option value="-">-</option>
+																</select>
+															</td>
+															<td><input class="modifier" id="d10mo" size="3" value="0"
+																	type="text"></td>
+															<td>=</td>
+															<td><input class="results" name="d10r" size="5"
+																	readonly="readonly" type="text">
+															</td>
+														</tr>
+														<tr>
+															<td><input class="number" name="d12n" size="3" value="1"
+																	type="text"></td>
+															<td><a href="javascript:void(null)" onclick="rollDn(12)"
+																	title="click to roll d12" class="die"
+																	id="d12">d12</a></td>
+															<td>
+																<select name="d12m">
+																	<option value="+" selected="selected">+</option>
+																	<option value="-">-</option>
+																</select>
+															</td>
+															<td><input class="modifier" id="d12mo" size="3" value="0"
+																	type="text"></td>
+															<td>=</td>
+															<td><input class="results" name="d12r" size="5"
+																	readonly="readonly" type="text">
+															</td>
+														</tr>
+														<tr>
+															<td><input class="number" name="d20n" size="3" value="1"
+																	type="text"></td>
+															<td><a href="javascript:void(null)" onclick="rollDn(20)"
+																	title="click to roll d20" class="die"
+																	id="d20">d20</a></td>
+															<td>
+																<select name="d20m">
+																	<option value="+" selected="selected">+</option>
+																	<option value="-">-</option>
+																</select>
+															</td>
+															<td><input class="modifier" id="d20mo" size="3" value="0"
+																	type="text"></td>
+															<td>=</td>
+															<td><input class="results" name="d20r" size="5"
+																	readonly="readonly" type="text">
+															</td>
+														</tr>
+														<tr>
+															<td><input class="number" name="d100n" size="3" value="1"
+																	type="text"></td>
+															<td><a href="javascript:void(null)" onclick="rollDn(100)"
+																	title="click to roll d100 (percentile)" class="die"
+																	id="d100">d100</a>
+															</td>
+															<td>
+																<select name="d100m">
+																	<option value="+" selected="selected">+</option>
+																	<option value="-">-</option>
+																</select>
+															</td>
+															<td><input class="modifier" id="d100mo" size="3" value="0"
+																	type="text"></td>
+															<td>=</td>
+															<td><input class="results" name="d100r" size="5"
+																	readonly="readonly" type="text"></td>
+														</tr>
+													</tbody>
+												</table>
+
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="sectionCellBL"></td>
+										<td class="sectionCellB"></td>
+									</tr>
+								</tbody>
+							</table>
+							<!-- END D20 DICE BAG -->
+
+							<!-- QUICK ROLL -->
+							<table class="sectionTable" cellspacing="0" cellpadding="0">
+								<colgroup>
+									<col width="15">
+									<col width="100%">
+								</colgroup>
+								<tbody>
+									<tr>
+										<td rowspan="2" class="sectionCellL"><input type="button" id="btndivQuickRoll"
+												class="divtogglebtn" value="-" onclick="toggleDiv( 'divQuickRoll' );">
+										</td>
+										<td><span class="heading">Quick Roll</span></td>
+									</tr>
+									<tr>
+										<td class="sectionContent">
+											<div id="divQuickRoll" style="display:block;">
+												<p>Press a button to roll a single die with the specified number of
+													sides.
+												</p>
+												<table class="quickRollTable">
+													<tbody>
+														<tr>
+															<td><input type="button" value="d2"
+																	onclick="rollDie( 2 );"><br>
+																<div class="divQuickResult" id="divQuickd2">&nbsp;</div>
+															</td>
+															<td><input type="button" value="d3"
+																	onclick="rollDie( 3 );"><br>
+																<div class="divQuickResult" id="divQuickd3">&nbsp;</div>
+															</td>
+															<td><input type="button" value="d4"
+																	onclick="rollDie( 4 );"><br>
+																<div class="divQuickResult" id="divQuickd4">&nbsp;</div>
+															</td>
+															<td><input type="button" value="d6"
+																	onclick="rollDie( 6 );"><br>
+																<div class="divQuickResult" id="divQuickd6">&nbsp;</div>
+															</td>
+															<td><input type="button" value="d8"
+																	onclick="rollDie( 8 );"><br>
+																<div class="divQuickResult" id="divQuickd8">&nbsp;</div>
+															</td>
+															<td><input type="button" value="d10"
+																	onclick="rollDie( 10 );"><br>
+																<div class="divQuickResult" id="divQuickd10">&nbsp;
+																</div>
+															</td>
+															<td><input type="button" value="d12"
+																	onclick="rollDie( 12 );"><br>
+																<div class="divQuickResult" id="divQuickd12">&nbsp;
+																</div>
+															</td>
+															<td><input type="button" value="d20"
+																	onclick="rollDie( 20 );"><br>
+																<div class="divQuickResult" id="divQuickd20">&nbsp;
+																</div>
+															</td>
+															<td><input type="button" value="d100"
+																	onclick="rollDie( 100 );"><br>
+																<div class="divQuickResult" id="divQuickd100">&nbsp;
+																</div>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="sectionCellBL"></td>
+										<td class="sectionCellB"></td>
+									</tr>
+								</tbody>
+							</table>
+							<!-- END QUICK ROLL -->
+
+							<!-- MY ROLLS -->
+							<table class="sectionTable" cellspacing="0" cellpadding="0">
+								<colgroup>
+									<col width="15">
+									<col width="100%">
+								</colgroup>
+								<tbody>
+									<tr>
+										<td rowspan="2" class="sectionCellL"><input type="button" id="btndivMyRolls"
+												class="divtogglebtn" value="-" onclick="toggleDiv( 'divMyRolls' );">
+										</td>
+										<td><span class="heading">My Rolls</span></td>
+									</tr>
+									<tr>
+										<td class="sectionContent">
+											<div id="divMyRolls" style="display:block;">
+												<p>Save your custom full rolls here for quick access to those complex,
+													yet
+													frequently used rolls.</p>
+												<div id="divMyRollTable">
+													<table class="myRolls">
+														<tbody>
+															<tr>
+																<td class="myRollName">3d20<br><input type="button"
+																		value="Delete"
+																		onclick="removeCustomRoll('3d20');">
+																</td>
+																<td class="myRollDescription" nowrap="nowrap">
+																	<b>3d20</b><br>( min 3 / median 31.5 / max 60 )</td>
+																<td class="myRollButton"><input type="hidden"
+																		name="myRollData0" value="1,3,20,0,0,1"><input
+																		type="button" value="Roll"
+																		onclick="doCustomRoll('3d20');"></td>
+																<td class="myRollResult">
+																	<div id="divMyRollResult0" class="result">&nbsp;
+																	</div>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="sectionCellBL"></td>
+										<td class="sectionCellB"></td>
+									</tr>
+								</tbody>
+							</table>
+							<!-- END MY ROLLS -->
+
+							<!-- FULL ROLL -->
+							<table class="sectionTable" cellspacing="0" cellpadding="0">
+								<colgroup>
+									<col width="15">
+									<col width="100%">
+								</colgroup>
+								<tbody>
+									<tr>
+										<td rowspan="2" class="sectionCellL"><input type="button" id="btndivFullRoll"
+												class="divtogglebtn" value="-" onclick="toggleDiv( 'divFullRoll' );">
+										</td>
+										<td><span class="heading">Full Roll</span></td>
+									</tr>
+									<tr>
+										<td class="sectionContent">
+											<div id="divFullRoll" style="display:block;">
+												<p>For more complicated rolls, you can generate pretty much any other
+													standard roll in here.</p>
+												<input type="text" id="txtFullRollMultiplier" size="3" value="1"
+													onkeyup="updateFullRoll( false );"
+													onchange="updateFullRoll( true );">
+												* ( <input type="text" id="txtFullRollNumRolls" size="3" value="1"
+													onkeyup="updateFullRoll( false );"
+													onchange="updateFullRoll( true );">
+												d<input type="text" id="txtFullRollNumSides" size="3" value="6"
+													onkeyup="updateFullRoll();" onchange="updateFullRoll( true );">
+												+ <input type="text" id="txtFullRollPerRollBonus" size="3" value="0"
+													onkeyup="updateFullRoll();" onchange="updateFullRoll( true );">
+												) + <input type="text" id="txtFullRollFinalBonus" size="3" value="0"
+													onkeyup="updateFullRoll( false );"
+													onchange="updateFullRoll( true );">
+													<br/><br />
+
+												<div id="divFullRollRules" class="fullRollRules" style="display:none;">
+													<b>Rolling Rules:</b>
+													<select name="FullRollRules" id="selectFullRollRules"
+														onchange="updateFullRoll( false );">
+														<option value="1" selected="selected">Standard rules</option>
+														<option value="2">Drop lowest</option>
+														<option value="3">Drop highest</option>
+														<option value="4">Drop lowest and highest</option>
+														<option value="5">Drop all but lowest</option>
+														<option value="6">Drop all but highest</option>
+													</select>
+												</div>
+
+												<table class="fullRollTable">
+													<tbody>
+														<tr>
+															<td class="fullRollDescription" nowrap="nowrap">
+																<div id="divFullRollDescription"><b>1d6</b><br>min 1 /
+																	median 3.5 / max 6</div>
+															</td>
+															<td class="fullRollButton">
+																<div id="divFullRollButton"><input type="button"
+																		value="Roll" onclick="doFullRoll();"><br><input
+																		type="button" value="Add to 'My Rolls'"
+																		onclick="addCustomRoll();"><input type="hidden"
+																		value="1,1,6,0,0,1"></div>
+															</td>
+															<td class="fullRollResult">
+																<div class="result" id="divFullRollResult">&nbsp;</div>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+
+											</div>
+
+										</td>
+									</tr>
+									<tr>
+										<td class="sectionCellBL"></td>
+										<td class="sectionCellB"></td>
+									</tr>
+								</tbody>
+							</table>
+							<!-- END FULL ROLL -->
+
+							<!-- STAT ROLL -->
+							<table class="sectionTable" cellspacing="0" cellpadding="0">
+								<colgroup>
+									<col width="15">
+									<col width="100%">
+								</colgroup>
+								<tbody>
+									<tr>
+										<td rowspan="2" class="sectionCellL"><input type="button" id="btndivStatRoll"
+												class="divtogglebtn" value="-" onclick="toggleDiv( 'divStatRoll' );">
+										</td>
+										<td><span class="heading">Stat Roll</span></td>
+									</tr>
+									<tr>
+										<td class="sectionContent">
+											<div id="divStatRoll" style="display:block;">
+												<p>Press the 'Roll' button to generate six ability scores (numbers
+													between 3 and 18). There are a variety of rolling rules available,
+													4d6
+													drop lowest being fairly common.</p>
+												<b>Rolling rules: </b><select name="StatRollStyle"
+													id="selectStatRollStyle">
+													<option value="1">3d6 Strict</option>
+													<option value="2">3d6 3 Times - Use Highest</option>
+													<option value="3" selected="selected">4d6 Drop Lowest</option>
+													<option value="4">2d6 + 6</option>
+													<option value="5">4d6 Drop Lowest, Reroll 1s</option>
+													<option value="6">Standard Roll, Gamble 3</option>
+													<option value="7">Standard Roll, Gamble 3 (Strict)</option>
+												</select>
+												<input type="button" value="Roll" onclick="rollStats();">
+												<p><input type="checkbox" id="chkShowPBE">Compute PBE (Point Buy
+													Equivalent)
+												</p>
+												<div id="divStatRollResults"></div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="sectionCellBL"></td>
+										<td class="sectionCellB"></td>
+									</tr>
+								</tbody>
+							</table>
+							<!-- END STAT ROLL -->
+
+							<!-- ROLL 18 -->
+							<table class="sectionTable" cellspacing="0" cellpadding="0">
+								<colgroup>
+									<col width="15">
+									<col width="100%">
+								</colgroup>
+								<tbody>
+									<tr>
+										<td rowspan="2" class="sectionCellL"><input type="button" id="btndivRoll18"
+												class="divtogglebtn" value="-" onclick="toggleDiv( 'divRoll18' );">
+										</td>
+										<td><span class="heading">Roll 18 with 3d6</span></td>
+									</tr>
+									<tr>
+										<td class="sectionContent">
+											<div id="divRoll18" style="display:block;">
+												<p>Press the 'Roll' button to roll 3d6 until an 18 is rolled.</p>
+												<input type="button" value="Roll" onclick="roll18();">
+												<div id="divStatRollResults"></div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="sectionCellBL"></td>
+										<td class="sectionCellB"></td>
+									</tr>
+								</tbody>
+							</table>
+							<!-- END 3D6 18 ROLL -->
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<!-- ROLL HISTORY -->
+		<table id="rollHistoryTable" cellspacing="0">
+			<tbody>
+				<tr>
+					<th>Roll History</th>
+				</tr>
+				<tr>
+
+					<td>
+						<textarea id="rollhistory" cols="40" rows="20" readonly="readonly"></textarea>
+						<script type="text/javascript">
+							document.getElementById('rollhistory').value = "";
+						</script>
+					</td>
+				</tr>
+				<tr>
+					<td align="center"><input type="button" id="btnClearRollHistory" onclick="clearRollHistory(); "
+							value="Clear Roll History"></td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- END ROLL HISTORY -->
+
+	</form>
+</body>
+
+</html>
